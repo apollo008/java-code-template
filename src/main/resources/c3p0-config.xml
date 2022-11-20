@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<c3p0-config>
+    <default-config>
+        <!--MySQL中开启批处理需要在url上添加参数，即： jdbc:mysql://localhost:3306/jdbc_test01?rewriteBatchedStatements=true-->
+        <!--<property name="c3p0.testConnectionOnCheckout">true</property>-->
+        <property name="jdbcUrl">jdbc:mysql://192.168.0.210:8888?rewriteBatchedStatements=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</property>
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="user">root</property>
+        <property name="password">123456</property>
+        　　     <!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+        <property name="acquireIncrement">6</property>
+        　　     <!-- 初始化数据库连接池时连接的数量 -->
+        <property name="initialPoolSize">10</property>
+        <property name="maxIdleTime">30</property>
+        <!-- 数据库连接池中的最小的数据库连接数 -->
+        <property name="minPoolSize">3</property>
+        <!-- 数据库连接池中的最大的数据库连接数 -->
+        <property name="maxPoolSize">200</property>
+        <property name="maxStatements">1000000</property>
+        <!--当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出 SQLException,如设为0则无限期等待。单位毫秒。Default: 0 -->
+        <property name="checkoutTimeout">5000</property>
+        <property name="idleConnectionTestPeriod">60</property>
+    </default-config>
+
+    <named-config name="myApp">
+        <!--<property name="c3p0.testConnectionOnCheckout">true</property>-->
+        <property name="jdbcUrl">jdbc:mysql://192.168.0.210:8888/ip?rewriteBatchedStatements=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</property>
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="user">root</property>
+        <property name="password">123456</property>
+        　　     <!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+        <property name="acquireIncrement">10</property>
+        　　     <!-- 初始化数据库连接池时连接的数量 -->
+        <property name="initialPoolSize">10</property>
+        <property name="maxIdleTime">30</property>
+        <!-- 数据库连接池中的最小的数据库连接数 -->
+        <property name="minPoolSize">3</property>
+        <!-- 数据库连接池中的最大的数据库连接数 -->
+        <property name="maxPoolSize">10</property>
+        <property name="maxStatements">10000</property>
+        <!--当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出 SQLException,如设为0则无限期等待。单位毫秒。Default: 0 -->
+        <property name="checkoutTimeout">5000</property>
+        <property name="idleConnectionTestPeriod">60</property>
+    </named-config>
+</c3p0-config>

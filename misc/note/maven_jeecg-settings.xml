@@ -1,0 +1,88 @@
+<settings>
+	<servers>
+		<server>
+			<id>releases</id>
+			<username>tech</username>
+			<password>tech</password>
+		</server>
+		<server>
+			<id>Snapshots</id>
+			<username>tech</username>
+			<password>tech</password>
+		</server>
+	</servers>
+
+    <mirrors>
+        <mirror>
+            <id>nexus-aliyun</id>
+            <mirrorOf>*,!jeecg,!jeecg-snapshots</mirrorOf>
+            <name>Nexus aliyun</name>
+            <url>
+                http://maven.aliyun.com/nexus/content/groups/public</url>
+        </mirror>
+	</mirrors>
+
+	<profiles>
+		<profile>
+			<id>development</id>
+			<repositories>
+				<repository>
+					<id>central</id>
+					<url>http://central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>central</id>
+					<url>http://central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+		<profile>
+			<!--this profile will allow snapshots to be searched when activated -->
+			<id>public-snapshots</id>
+			<repositories>
+				<repository>
+					<id>public-snapshots</id>
+					<url>http://public-snapshots</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>public-snapshots</id>
+					<url>http://public-snapshots</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+	<activeProfiles>
+		<activeProfile>development</activeProfile>
+		<activeProfile>public-snapshots</activeProfile>
+	</activeProfiles>
+
+</settings>
+

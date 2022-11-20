@@ -1,0 +1,23 @@
+you'd better use jdk11.
+
+stock_spider_download.pdffiles.demo.zip  and stock_spider.sql in current directory is used to
+run demo programme effect. 
+
+
+运行：
+for linux:
+       方法一：
+        cd target;
+        java -jar -Djava.library.path=`pwd`/lib demoapp.jar
+
+       方法二：
+        export LD_LIBRARY_PATH=`pwd`/lib:$LD_LIBRARY_PATH
+        echo $LD_LIBRARY_PATH
+        java -jar demoappp.jar
+
+for IDE:
+       把lib目录路径加入依赖库
+for windows:
+        在命令行：
+        cd target;
+        java -jar -Djava.library.path=F:\work\xxx\target\lib demoapp.jar
